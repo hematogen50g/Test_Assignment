@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec575bc342c2cb84dbfcf1d493a54f2c, type: 3}
+  m_Name: EnemyTemplate
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4484717761006699031, guid: 2771dd6a11c2bb64892972733a26f24b, type: 3}
+  combatUnitStats:
+    hitPoints: 5
+    hitPointsIncrement: 1
+    damage: 1
+    damageIncrement: 1
+    attackCooldown: 2
+  enemyStats:
+    bounty: 8
+    bountyIncrement: 1
+    moveSpeed: 2
+    moveSpeedIncrement: 0.1
