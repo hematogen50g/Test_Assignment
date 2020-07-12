@@ -18,8 +18,12 @@ public class GameController : MonoBehaviour
     private UIController uiController;
 
     public int WaveNumber { get; private set; } = 0;
-    public int Kills { get; private set; } = 0;   
-    
+    public int Kills { get; private set; } = 0;
+    private void Start()
+    {
+        Debug.Log("My Code Begins here");
+        Play();
+    }
     public void Play()
     {
         Restart();

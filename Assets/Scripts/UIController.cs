@@ -17,23 +17,22 @@ class UIController:MonoBehaviour
     [Inject]
     public void Init(Fortress fortress,GameController gameController)
     {
-        fortress.fortressTakeDamage.AddListener(OnFortressTakeDamage);
-        fortress.fortressDestroyed.AddListener(OnFortressDestroyed);
-        this.fortress = fortress;
-        this.gameController = gameController;
-    }
-    public void Start()
-    {
+        InitUIElements();
         killsPrefix = "Kills: ";
         wavePrefix = "Wave: ";
         goldPrefix = "Gold: ";
         gameOverWavePrefix = "Waves survived: ";
         gameOverKillsPrefix = "Total kills ";
+
+        fortress.fortressTakeDamage.AddListener(OnFortressTakeDamage);
+        fortress.fortressDestroyed.AddListener(OnFortressDestroyed);
+        this.fortress = fortress;
+        this.gameController = gameController;
+
         ResetUI();
         Debug.Log(gameController);
-    }
-
-    private void OnValidate()
+    }   
+    public void InitUIElements()
     {
         menuCanvas = transform.Find("MenuCanvas").GetComponent<Canvas>();
         gameplayCanvas = transform.Find("GameplayCanvas").GetComponent<Canvas>();
@@ -49,7 +48,7 @@ class UIController:MonoBehaviour
         gameOverKills = gameOverCanvas.transform.Find("VerticalLayout").Find("Kills").Find("Text").GetComponent<Text>();
         gameOverWave = gameOverCanvas.transform.Find("VerticalLayout").Find("Waves").Find("Text").GetComponent<Text>();
         //find buttons
-        Button play, exit1,exit2, restart1,restart2;
+        Button play, exit1, exit2, restart1, restart2;
         play = menuCanvas.transform.Find("VerticalLayout").Find("Play").GetComponent<Button>();
         exit1 = menuCanvas.transform.Find("VerticalLayout").Find("Exit").GetComponent<Button>();
         exit2 = gameOverCanvas.transform.Find("VerticalLayout").Find("Exit").GetComponent<Button>();
@@ -63,7 +62,7 @@ class UIController:MonoBehaviour
         restart1.onClick.AddListener(OnRestartButtonClick);
         restart2.onClick.AddListener(OnRestartButtonClick);
     }
-
+    
     public void ShowMenuCanvas(bool show)
     {
         menuCanvas.enabled = show;
@@ -83,6 +82,7 @@ class UIController:MonoBehaviour
     }
     public void OnRestartButtonClick()
     {
+        print("clicked restart");
         ShowGameOverCanvas(false);
         gameController.Restart();
         ResetUI();
@@ -96,7 +96,7 @@ class UIController:MonoBehaviour
     }
     public void OnPlayButtonClick()
     {
-        gameController.Play();
+        //gameController.Play();
         ShowMenuCanvas(false);       
     }
     public void OnEnemyKilled(int totalKills)

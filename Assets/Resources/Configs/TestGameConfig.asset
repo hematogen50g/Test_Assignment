@@ -15,8 +15,8 @@ MonoBehaviour:
   startGold: 25
   fortressMaxHP: 600
   extraEnemiesMax: 4
-  enemyPoolSize: 200
-  waveCooldown: 9
-  enemyUnleashDelay: 0.35
+  enemyPoolSize: 100
+  waveCooldown: 11
+  enemyUnleashDelay: 0.4
   waypointProximity: 0.15
   showWaypoints: 1
